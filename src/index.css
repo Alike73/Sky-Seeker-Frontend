@@ -31,6 +31,7 @@ body {
   --size: calc(1vh + 1vw);
 
   --c-navy: hsl(211deg 80.66% 26.14%);
+  --c-navy-md: hsl(217, 80%, 42%);
   --c-blue: hsl(243, 100%, 69%);
   --c-lilac: hsl(260, 95%, 58%);
   --c-blue-lg: hsl(219, 45%, 10%);
@@ -38,6 +39,7 @@ body {
   --c-blue-sm: hsl(242, 51%, 70%);
   --c-grey: hsl(233, 23%, 34%);
   --c-light: hsl(0, 0%, 100%);
+  --c-light-md: hsl(0, 0%, 90%);
 
   --l-sm1: .25rem;
   --l-sm2: .375rem;
@@ -50,11 +52,15 @@ body {
   --l-lg2: 3rem;
   --l-lg3: 4rem;
 
-  --img-shadow-1: drop-shadow(1px 2px 3px #000000);
-  --img-shadow-2: drop-shadow(1px 1px 2px #D7E2FE);
-  --img-shadow-3: drop-shadow(1px 2px 3px rgb(115, 241, 11));
-  --img-shadow-4: drop-shadow(1px 2px 1px #8d8282);
-  --img-shadow-5: drop-shadow(1px 2px 3px #FFFFFF);
+  --img-shadow-1: drop-shadow(1px 2px 3px hsl(0, 0%, 0%));
+  --img-shadow-2: drop-shadow(1px 1px 2px hsl(223, 95%, 92%));
+  --img-shadow-3: drop-shadow(1px 2px 3px hsl(215, 89%, 29%));
+  --img-shadow-4: drop-shadow(1px 2px 1px hsl(0, 5%, 53%));
+  --img-shadow-5: drop-shadow(1px 2px 3px hsl(0, 0%, 100%));
+
+  --box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
 
   --text-shadow: 0px 4px 3px 
     rgb(0 0 0 / 40%), 0px 8px 13px 
@@ -64,6 +70,8 @@ body {
   --transition-1: 250ms ease-in-out;
   --transition-2: 500ms ease-in-out;
   --transition-3: 750ms ease-in-out;
+
+  --app-bg: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
 
 /* ---Scrollbar-Style--- */
