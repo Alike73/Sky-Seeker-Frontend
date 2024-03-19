@@ -35,9 +35,12 @@ body {
   --c-blue: hsl(243, 100%, 69%);
   --c-lilac: hsl(260, 95%, 58%);
   --c-blue-lg: hsl(219, 45%, 10%);
+  --c-dark: hsl(60, 1%, 19%);
   --c-blue-md: hsl(248, 45%, 54%);
   --c-blue-sm: hsl(242, 51%, 70%);
+  --c-label-lg: hsl(210, 11%, 71%);
   --c-grey: hsl(233, 23%, 34%);
+  --c-yellow: hsl(43, 100%, 50%);
   --c-light: hsl(0, 0%, 100%);
   --c-light-md: hsl(0, 0%, 90%);
 
