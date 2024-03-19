@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 import { getIsOpen } from '../redux/SidebarSlice';
+import { FaMapMarkerAlt } from "react-icons/fa";
 import UnitsToggler from './UnitsToggler';
 
 const Sidebar = () => {
@@ -19,7 +20,8 @@ const Sidebar = () => {
             </form>
             <ul className="nav nav-pills flex-column mb-auto">
                 <li className="nav-item my-2">
-                    <a href="#abc" className="nav-link active" aria-current="page">
+                    <a href="#abc" className="nav-link text-white d-flex align-items-center" aria-current="page">
+                    <FaMapMarkerAlt className='fs-4 text-danger me-2' />
                     Cary 15&#176;C
                     </a>
                 </li>

@@ -13,7 +13,7 @@ const Main = () => {
             <Sidebar />
             <div className="container col-xl-10 col-xxl-8 px-4 py-5">
                 <div className="col text-center text-lg-start mb-3">
-                    <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-5">
+                    <h1 className="display-1 fw-bold lh-1 text-body-emphasis mb-5">
                         Sky Seeker
                     </h1>
                     <SearchWeatherInput />

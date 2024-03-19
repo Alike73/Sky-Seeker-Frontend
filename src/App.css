@@ -11,6 +11,20 @@
   align-items: center; */
 }
 
+h1 {
+  --light-pos-x: 1; /* left: -1, center: 0, right: 1 */
+  --light-pos-y: -1; /* top: -1, center: 0, bottom: 1 */
+  --rim-size: .02ch;
+  --shadow-offset: .15ch;
+  --shadow-blur: .2ch;
+  text-shadow: calc(max(var(--rim-size), 1px)* var(--light-pos-x)) 
+  calc(max(var(--rim-size), 1px)* var(--light-pos-y)) hsl(0 0% 100%), 
+  calc(max(var(--rim-size), 1px)* var(--light-pos-x)* -1) 
+  calc(max(var(--rim-size), 1px)* var(--light-pos-y)* -1) hsl(0deg 1.44% 26.13%), 
+  calc(var(--shadow-offset)* var(--light-pos-x)* -1) 
+  calc(var(--shadow-offset)* var(--light-pos-y)* -1) var(--shadow-blur) hsl(0deg 0.39% 2% / 75%);
+}
+
 /* ===Sidebar=== */
 .sidebar {
   width: 280px;
