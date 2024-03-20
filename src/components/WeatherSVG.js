@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { BsMoisture } from "react-icons/bs";
 import { LuWind } from "react-icons/lu";
 import { FaBoltLightning } from "react-icons/fa6";
+import { useSelector } from 'react-redux';
+import { getUnits } from '../redux/WeatherSlice';
 
 
 const WeatherSVG = ({ apiData, finalDate }) => {
 
     // {Math.round(apiData.main.temp)}
 
+    const units = useSelector(getUnits);
     const temperature = Math.round(apiData?.main?.temp);
     const feelsLike = Math.round(apiData?.main?.feels_like);
     const minTemp = Math.round(apiData?.main?.temp_min);
@@ -45,12 +48,14 @@ const WeatherSVG = ({ apiData, finalDate }) => {
     // Fahrenheit &#8457;
     // Celsius &#8451;
 
+    const unitsItem = units ? 'C' : 'F';
+
 
     return (
         <div>
             <svg className='weather_svg' xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="100%" height="100%" viewBox="0 0 903.81496 419" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <g>
-                    <text className='fs-2' x="24" y="43" fill="black">Min: { minTemp }&#8451;</text>
+                    <text className='fs-2' x="24" y="43" fill="black">Min: { minTemp }&#176;{ unitsItem }</text>
                     <text className='fs-2' x="182" y="43" fill="black">Max: { maxTemp }&#8451;</text>
                     <text className='fs-2' x="385" y="43" fill="black">: { humidity }&#37;</text>
                     <text className='fs-2' x="526" y="43" fill="black">: { windSpeed }m/s</text>

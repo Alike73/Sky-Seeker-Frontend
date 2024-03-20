@@ -1,10 +1,27 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getUnits, setUnits } from '../redux/WeatherSlice';
 
 const UnitsToggler = () => {
 
+    const units = useSelector(getUnits);
+    const dispatch = useDispatch();
+
+    const toggleUnits = () => {
+        dispatch(setUnits(!units))
+        ; // Toggle between metric and imperial
+    };
+
     return (
         <div className="checkbox-wrapper-35">
-            <input value="private" name="switch" id="switch" type="checkbox" className="switch" />
+            <input 
+            value="private" 
+            name="switch" 
+            id="switch" 
+            type="checkbox" 
+            className="switch"
+            onChange = { toggleUnits }
+            />
             <label htmlFor="switch">
                 <span className="switch-x-text">
                     &#176;

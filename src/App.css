@@ -342,6 +342,19 @@ h1 {
 .weather_svg {
   filter: var(--img-shadow-3);
 }
+.weather_icon {
+  filter: var(--img-shadow-3);
+  opacity: .7;
+  animation: upAndDown 500ms infinite alternate;
+}
+@keyframes upAndDown {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(3px);
+  }
+}
 
 /* ===Footer-Clouds=== */
 .clouds {

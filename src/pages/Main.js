@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from 'axios';
 import { getCity, getUnits } from "../redux/WeatherSlice";
@@ -6,7 +7,6 @@ import SearchWeatherInput from "../components/SearchWeatherInput";
 import Sidebar from "../components/Sidebar";
 import SidebarToggler from "../components/SidebarToggler";
 import WeatherSVG from "../components/WeatherSVG";
-import { useEffect, useState } from "react";
 
 
 const Main = () => {
@@ -15,7 +15,7 @@ const Main = () => {
     const city = useSelector(getCity);
     const units = useSelector(getUnits);
     const apiKey = 'f60a3c61969e0f747d4947065c74bc1a';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units ? 'metric' : 'imperial'}&appid=${apiKey}`;
 
     // Using fetch method:
     // useEffect(() => {
@@ -50,6 +50,10 @@ const Main = () => {
 
     const finalDate = day + ' ' + todayDate + ' ' + month + ' ' + year;
 
+    const weatherImgCode = apiData.weather?.[0]?.icon;
+
+    const imgURL = `https://openweathermap.org/img/wn/${weatherImgCode}@2x.png`;
+
     return (
         <div className="main">
             <SidebarToggler />
@@ -66,6 +70,7 @@ const Main = () => {
                     </h2>
                     <p className="fs-3 fw-bold lh-1 text-body-emphasis text-center mb-3">
                         { conditions }
+                        <img className="ms-2 weather_icon" src={ imgURL } alt="sun" width={62} />
                     </p>
                     <WeatherSVG apiData = { apiData } finalDate = { finalDate } />
                 </div>

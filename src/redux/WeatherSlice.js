@@ -7,7 +7,7 @@ export const weatherSlice = createSlice({
     initialState: {
         city: "New York",
         myCity: "",
-        units: "metric"
+        units: true
     },
     reducers: {
         setCity: (state, action) => {
