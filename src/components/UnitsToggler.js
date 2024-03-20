@@ -23,17 +23,17 @@ const UnitsToggler = () => {
             onChange = { toggleUnits }
             />
             <label htmlFor="switch">
-                <span className="switch-x-text">
+                <span className={ `switch-x-text ${units ? "text-info" : "text-warning" }`}>
                     &#176;
                 </span>
                 <span className="switch-x-toggletext">
-                    <span className="switch-x-unchecked">
+                    <span className="switch-x-unchecked text-info">
                         <span className="switch-x-hiddenlabel">
                         Unchecked: 
                         </span>
                         C
                     </span>
-                    <span className="switch-x-checked">
+                    <span className="switch-x-checked text-warning">
                         <span className="switch-x-hiddenlabel">
                             Checked: 
                         </span>

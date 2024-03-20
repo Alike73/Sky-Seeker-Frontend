@@ -3,15 +3,19 @@ import { useSelector } from "react-redux";
 import { getIsOpen } from '../redux/SidebarSlice';
 import { FaMapMarkerAlt } from "react-icons/fa";
 import UnitsToggler from './UnitsToggler';
+import { getUnits } from '../redux/WeatherSlice';
 
 const Sidebar = () => {
 
     const isOpen = useSelector(getIsOpen);
+    const units = useSelector(getUnits);
+
+    const unitsSystem = units ? "metric" : "imperial";
 
     return (
         <div className={ `d-flex flex-column flex-shrink-0 p-3 sidebar ${ isOpen ? "open" : "" }` }>
         <div className="units_toggler_wrapper mb-3">
-            <small>Units toggler</small>
+            <small>Units: ( <span className={ `${units ? "text-info" : "text-warning" }`}>{unitsSystem}</span> )</small>
             <UnitsToggler />
         </div>
             <hr />
