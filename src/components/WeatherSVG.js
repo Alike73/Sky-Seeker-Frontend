@@ -3,27 +3,44 @@ import { BsMoisture } from "react-icons/bs";
 import { LuWind } from "react-icons/lu";
 
 
-const WeatherSVG = () => {
+const WeatherSVG = ({ apiData, finalDate }) => {
+
+    // {Math.round(apiData.main.temp)}
+
+    const temperature = Math.round(apiData?.main?.temp);
+    const feelsLike = Math.round(apiData?.main?.feels_like);
+    const minTemp = Math.round(apiData?.main?.temp_min);
+    const maxTemp = Math.round(apiData?.main?.temp_max);
+    const humidity = Math.round(apiData?.main?.humidity);
+    const windSpeed = Math.round(apiData?.wind?.speed);
+
+    // Fahrenheit &#8457;
+    // Celsius &#8451;
+
+
     return (
         <div>
             <svg className='weather_svg' xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="100%" height="100%" viewBox="0 0 903.81496 419" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <g>
-                    <text className='fs-2' x="30" y="43" fill="black">Min: 12</text>
-                    <text className='fs-2' x="178" y="43" fill="black">Max: 21</text>
-                    <text className='fs-2' x="360" y="43" fill="black">: 75%</text>
-                    <text className='fs-2' x="520" y="43" fill="black">: 8m/s</text>
-                    <BsMoisture className='fs-2' x="328" y="19" />
-                    <LuWind className='fs-2' x="488" y="19" />
+                    <text className='fs-2' x="24" y="43" fill="black">Min: { minTemp }&#8451;</text>
+                    <text className='fs-2' x="182" y="43" fill="black">Max: { maxTemp }&#8451;</text>
+                    <text className='fs-2' x="385" y="43" fill="black">: { humidity }&#37;</text>
+                    <text className='fs-2' x="526" y="43" fill="black">: { windSpeed }m/s</text>
+                    <BsMoisture className='fs-2' x="347" y="19" />
+                    <LuWind className='fs-2' x="492" y="19" />
                     <line x1="2" y1="65" x2="626" y2="65" stroke="#3F3D56" strokeWidth="2" />
-                    <line x1="152" y1="62" x2="152" y2="4" stroke="#e6e6e6" strokeWidth="2" />
-                    <line x1="305" y1="62" x2="305" y2="4" stroke="#e6e6e6" strokeWidth="2" />
-                    <line x1="458" y1="62" x2="458" y2="4" stroke="#e6e6e6" strokeWidth="2" />
+                    <line x1="170" y1="62" x2="170" y2="4" stroke="#e6e6e6" strokeWidth="2" />
+                    <line x1="338" y1="62" x2="338" y2="4" stroke="#e6e6e6" strokeWidth="2" />
+                    <line x1="478" y1="62" x2="478" y2="4" stroke="#e6e6e6" strokeWidth="2" />
                 </g>
                 <g>
-                    <text className='display-3' x="35" y="320" fill="black">18&#176;C/F,</text>
-                    <text className='display-3' x="300" y="320" fill="black">FL: 17&#176;C/F</text>
+                <text className='fs-1' x="128" y="265" fill="black">Current</text>
+                <text className='fs-1' x="406" y="265" fill="black">Feels like</text>
+                    <text className='display-1 fw-bold' x="120" y="350" fill="black">{ temperature }&#8451;</text>
+                    <text className='display-1 fw-bold' x="406" y="350" fill="black">{ feelsLike }&#8451;</text>
+                    <text className='fs-4' x="200" y="200" fill="black">{ finalDate }</text>
                     <line x1="2" y1="400" x2="550" y2="400" stroke="#3F3D56" strokeWidth="2" />
-                    <line x1="276" y1="380" x2="276" y2="236" stroke="#e6e6e6" strokeWidth="2" />
+                    <line x1="338" y1="380" x2="338" y2="236" stroke="#e6e6e6" strokeWidth="2" />
                 </g>
 
                 
