@@ -34,6 +34,7 @@ body {
   --c-navy-md: hsl(217, 80%, 42%);
   --c-blue: hsl(243, 100%, 69%);
   --c-lilac: hsl(260, 95%, 58%);
+  --c-coral: hsl(2, 100%, 66%);
   --c-blue-lg: hsl(219, 45%, 10%);
   --c-dark: hsl(60, 1%, 19%);
   --c-blue-md: hsl(248, 45%, 54%);
@@ -43,6 +44,9 @@ body {
   --c-yellow: hsl(43, 100%, 50%);
   --c-light: hsl(0, 0%, 100%);
   --c-light-md: hsl(0, 0%, 90%);
+  --c-light-transparent-sm: rgba(255, 255, 255, 0.3);
+  --c-light-transparent-md: rgba(255, 255, 255, 0.5);
+  --c-light-transparent-lg: rgba(221, 222, 224, 0.5);
 
   --l-sm1: .25rem;
   --l-sm2: .375rem;
@@ -56,7 +60,7 @@ body {
   --l-lg3: 4rem;
 
   --img-shadow-1: drop-shadow(1px 2px 3px hsl(0, 0%, 0%));
-  --img-shadow-2: drop-shadow(1px 1px 2px hsl(223, 95%, 92%));
+  --img-shadow-2: drop-shadow(2px 2px 2px hsl(223, 95%, 92%));
   --img-shadow-3: drop-shadow(1px 2px 3px hsl(215, 89%, 29%));
   --img-shadow-4: drop-shadow(1px 2px 1px hsl(0, 5%, 53%));
   --img-shadow-5: drop-shadow(3px 3px 3px hsl(0, 0%, 100%));

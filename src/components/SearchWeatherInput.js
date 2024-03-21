@@ -52,13 +52,14 @@ const SearchWeatherInput = () => {
                     </svg>
                 </button>
                 <input 
-                type="text" 
+                type="search" 
                 name="text" 
                 className="input" 
                 placeholder="type your city name.."
                 value = { myCity }
                 onChange = { handleInputChange }
                 onKeyDown = { handleEnterKey }
+                autoComplete='off'
                 />
                 <img className="weatherSun" src={ weatherSun } alt="weather sun" />
             </div>

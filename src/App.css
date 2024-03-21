@@ -52,6 +52,49 @@ h1 {
   translate: 0;
 }
 
+.manage_location_btn {
+  color: var(--c-light-md);
+  background: var(--c-light-transparent-sm);
+  border: none;
+  transition: var(--transition-1);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.manage_location_btn:hover {
+  transform: translateY(-2px);
+  color: var(--c-light);
+  background: var(--c-light-transparent-md);
+  text-shadow: var(--text-shadow);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.manage_location_input {
+  color: var(--c-light);
+  background: var(--c-light-transparent-sm);
+}
+.manage_location_input:focus {
+  color: var(--c-light);
+  background: var(--c-light-transparent-lg);
+}
+
+.btn_group .s_ico {
+  padding: var(--l-sm2);
+  border-radius: var(--l-sm1);
+  color: var(--c-light-md);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+}
+.btn_group .s_ico:hover {
+  color: var(--c-coral);
+  cursor: pointer;
+}
+.btn_group button .s_ico {
+  filter: var(--img-shadow-1);
+}
+.btn_group button:hover {
+  color: var(--c-coral);
+}
+
 /* ===Sidebar-Toggler=== */
 .units_toggler_wrapper small {
   color: var(--c-label-lg);
@@ -63,7 +106,7 @@ h1 {
   align-items: center;
   position: fixed;
   top: 1.2rem;
-  right: 0;
+  right: .5rem;
   z-index: 110;
   transition: var(--transition-1);
 }
@@ -344,7 +387,7 @@ h1 {
 }
 .weather_icon {
   filter: var(--img-shadow-3);
-  opacity: .7;
+  /* opacity: .7; */
   animation: upAndDown 500ms infinite alternate;
 }
 @keyframes upAndDown {
