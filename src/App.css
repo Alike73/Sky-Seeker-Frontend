@@ -411,6 +411,46 @@ h1 {
 .pressure_svg {
   filter: var(--img-shadow-3);
 }
+.pressure_svg_arrow_top {
+  animation: move-arrow-1 2s infinite;
+}
+@keyframes move-arrow-1 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10%); }
+  100% { transform: translateX(0); }
+}
+.pressure_svg_arrow_down {
+  animation: move-arrow-2 2s infinite;
+  animation-delay: 500ms;
+}
+@keyframes move-arrow-2 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(25%); }
+  100% { transform: translateX(0); }
+}
+
+.wind_top {
+  animation: move-wind-1 2000ms infinite;
+}
+@keyframes move-wind-1 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5%); }
+  100% { transform: translateX(0); }
+}
+.wind_middle {
+  animation: move-wind-2 1500ms infinite;
+}
+@keyframes move-wind-2 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10%); }
+  100% { transform: translateX(0); }
+}
+.wind_down {
+  animation: move-wind-2 1500ms infinite;
+}
+.glow_cloud {
+  filter: var(--img-shadow-6);
+}
 
 /* ===Footer-Clouds=== */
 .clouds {
