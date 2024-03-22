@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getUnits } from '../redux/WeatherSlice';
 import { BsMoisture } from "react-icons/bs";
 import { LuWind } from "react-icons/lu";
 import { FaBoltLightning } from "react-icons/fa6";
-import { useSelector } from 'react-redux';
-import { getUnits } from '../redux/WeatherSlice';
+import { BsMoonStars } from "react-icons/bs";
+import { FiSunrise } from "react-icons/fi";
+import { FiSunset } from "react-icons/fi";
 
-
-const WeatherSVG = ({ apiData, finalDate }) => {
+const WeatherSVG = ({ apiData, currentTime, weatherImgCode, mySunriseTime, mySunsetTime }) => {
 
     // {Math.round(apiData.main.temp)}
 
@@ -26,6 +28,8 @@ const WeatherSVG = ({ apiData, finalDate }) => {
     const [scatteredClouds, setScatteredClouds] = useState(null);
     const [rain, setRain] = useState(null);
     const [snow, setSnow] = useState(null);
+    const [showSun, setShowSun] = useState(null);
+    const [showMoon, setShowMoon] = useState(null);
     
 
     useEffect(() => {
@@ -35,6 +39,8 @@ const WeatherSVG = ({ apiData, finalDate }) => {
         const overcastCloudsCodes = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781, 803, 804];
         const rainCodes = [300, 301, 302,310, 311, 312, 313, 314, 321, 500, 501, 502, 503, 504, 511, 520, 521, 522, 531];
         const snowCodes = [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622];
+        const iconDayList = ['01d', '02d', '03d', '04d', '09d', '10d', '11d', '13d', '50d'];
+        const iconNightList = ['01n', '02n', '03n', '04n', '09n', '10n', '11n', '13n', '50n'];
         
         thunderstormCodes.includes(weatherCode) ? setThunderstorm(true) : setThunderstorm(false);
         clearSkyCodes.includes(weatherCode) ? setClearSky(true) : setClearSky(false);
@@ -42,8 +48,10 @@ const WeatherSVG = ({ apiData, finalDate }) => {
         scatteredCloudsCodes.includes(weatherCode) ? setScatteredClouds(true) : setScatteredClouds(false);
         rainCodes.includes(weatherCode) ? setRain(true) : setRain(false);
         snowCodes.includes(weatherCode) ? setSnow(true) : setSnow(false);
+        iconDayList.includes(weatherImgCode) ? setShowSun(true) : setShowSun(false);
+        iconNightList.includes(weatherImgCode) ? setShowMoon(true) : setShowMoon(false);
         
-    }, [weatherCode])
+    }, [weatherCode, weatherImgCode])
 
     // Fahrenheit &#8457;
     // Celsius &#8451;
@@ -72,7 +80,11 @@ const WeatherSVG = ({ apiData, finalDate }) => {
                 <text className='fs-1' x="406" y="265" fill="black">Feels like</text>
                     <text className='display-1 fw-bold' x="120" y="350" fill="black">{ temperature }&#176;{ unitTemp }</text>
                     <text className='display-1 fw-bold' x="406" y="350" fill="black">{ feelsLike }&#176;{ unitTemp }</text>
-                    <text className='fs-4' x="200" y="200" fill="black">{ finalDate }</text>
+                    <text className='fs-4' x="18" y="200" fill="black">Time { currentTime }</text>
+                    <FiSunrise className='fs-1 sunrise' x="220" y="175" />
+                    <text className='fs-4' x="270" y="200" fill="black">{ mySunriseTime }</text>
+                    <FiSunset className='fs-1 sunset' x="450" y="175" />
+                    <text className='fs-4' x="500" y="200" fill="black">{ mySunsetTime }</text>
                     <line x1="2" y1="400" x2="550" y2="400" stroke="#3F3D56" strokeWidth="2" />
                     <line x1="338" y1="380" x2="338" y2="236" stroke="#e6e6e6" strokeWidth="2" />
                 </g>
@@ -89,15 +101,38 @@ const WeatherSVG = ({ apiData, finalDate }) => {
                 <path d="M919.855,369.59337l-23.28842,7.035a4.81687,4.81687,0,0,1-6.15823-3.90862l-3.5355-23.995A13.37737,13.37737,0,0,1,912.507,341.063l10.31233,21.866a4.81689,4.81689,0,0,1-2.96431,6.66438Z" transform="translate(-148.09252 -240.5)" fill="#6c63ff"/>
                 <path d="M850.26787,298.51445a30.44348,30.44348,0,0,0,32.21073-6.76432c-2.57623,6.80639-1.856,35.674-1.856,35.674s22.84668-10.84668,25.94629-12.74359c18.30713-11.20417-6.9419-59.94287-27.94629-52.25641-3.55762,1.30188-6.529,2.83372-7.96807,6.33788-3.13633-3.86875-9.07321-4.70786-13.63995-2.72072s-7.81312,6.29343-9.55868,10.95785a27.4066,27.4066,0,0,0,1.993,23.11342Z" transform="translate(-148.09252 -240.5)"/>
                 <path d="M743.09252,240.5h-562a33.03244,33.03244,0,0,0-33,33v154a33.03244,33.03244,0,0,0,33,33h562a33.03244,33.03244,0,0,0,33-33v-154A33.03244,33.03244,0,0,0,743.09252,240.5Zm31,187a31.03964,31.03964,0,0,1-31,31h-562a31.03964,31.03964,0,0,1-31-31v-154a31.03964,31.03964,0,0,1,31-31h562a31.03964,31.03964,0,0,1,31,31Z" transform="translate(-148.09252 -240.5)" fill="#3f3d56"/>
+
+                { showMoon && (
+                <BsMoonStars className='moonStars' x="68" y="113" fill={ clearSky ? "#FBA834" : "#3f3d56" } />
+                )}
+                { showSun && (
                 <path d="M236.84252,386a12,12,0,1,1,12-12A12.01375,12.01375,0,0,1,236.84252,386Zm0-22a10,10,0,1,0,10,10A10.0113,10.0113,0,0,0,236.84252,364Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M236.44872,359a1,1,0,0,1-1-1V346.5a1,1,0,0,1,2,0V358A1,1,0,0,1,236.44872,359Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M220.84252,374.60645h-11.5a1,1,0,0,1,0-2h11.5a1,1,0,1,1,0,2Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M262.84252,374.60645h-11.5a1,1,0,0,1,0-2h11.5a1,1,0,0,1,0,2Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M251.0266,363.67236a1,1,0,0,1-.69629-1.71777l4.81592-4.67236a1,1,0,0,1,1.39258,1.43554l-4.81592,4.67237A.99626.99626,0,0,1,251.0266,363.67236Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                {showSun && (
                 <path d="M221.65844,363.67236a.99668.99668,0,0,1-.69629-.28222l-4.81592-4.67237a1,1,0,1,1,1.39258-1.43554l4.81592,4.67236a1,1,0,0,1-.69629,1.71777Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M217.84252,391a1.00025,1.00025,0,0,1-.71753-1.69678l4.81592-4.95947a1.00017,1.00017,0,0,1,1.43506,1.39355l-4.81592,4.95948A.99855.99855,0,0,1,217.84252,391Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M256.84252,392a.995.995,0,0,1-.71558-.30176l-5.81591-5.95947a.99979.99979,0,1,1,1.43115-1.39648l5.81592,5.95947A.99975.99975,0,0,1,256.84252,392Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+                { showSun && (
                 <path d="M236.44872,402a1,1,0,0,1-1-1V389.5a1,1,0,0,1,2,0V401A1,1,0,0,1,236.44872,402Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                )}
+
                 <path d="M367.25609,393H333.87426a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Zm-33.38183-24a11.00221,11.00221,0,0,0,0,22h33.38183a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547Z" transform="translate(-148.09252 -240.5)" fill={ overcastClouds ? "#FBA834" : "#3f3d56" }/>
                 <path d="M478.76391,374.05664l-.7793-1.8418A10.002,10.002,0,1,0,464.84423,359.188l-1.84863-.7627a12.0019,12.0019,0,1,1,15.76831,15.63135Z" transform="translate(-148.09252 -240.5)" fill={ scatteredClouds ? "#FBA834" : "#3f3d56" }/>
                 <path d="M480.25609,393H446.87426a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Zm-33.38183-24a11.00221,11.00221,0,0,0,0,22h33.38183a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547Z" transform="translate(-148.09252 -240.5)" fill={ scatteredClouds ? "#FBA834" : "#3f3d56" }/>

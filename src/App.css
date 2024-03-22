@@ -399,6 +399,19 @@ h1 {
   }
 }
 
+.sunrise {
+  color: var(--c-yellow);
+}
+.sunset {
+  color: var(--c-coral);
+}
+.moonStars {
+  font-size: 48px;
+}
+.pressure_svg {
+  filter: var(--img-shadow-3);
+}
+
 /* ===Footer-Clouds=== */
 .clouds {
   /* position: absolute;
