@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getUnits } from '../redux/WeatherSlice';
 import { BsMoisture } from "react-icons/bs";
-import { LuWind } from "react-icons/lu";
 import { FaBoltLightning } from "react-icons/fa6";
 import { BsMoonStars } from "react-icons/bs";
 import { FiSunrise } from "react-icons/fi";
@@ -70,7 +69,6 @@ const WeatherSVG = ({ apiData, currentTime, weatherImgCode, mySunriseTime, mySun
                     <text className='fs-2' x="385" y="43" fill="black">: { humidity }&#37;</text>
                     <text className='fs-2' x="516" y="43" fill="black">:{ windSpeed }{ unitWindSpeed }</text>
                     <BsMoisture className='fs-2' x="347" y="19" />
-                    {/* <LuWind className='fs-2' x="484" y="19" /> */}
                     <WindSVG />
                     <line x1="2" y1="65" x2="626" y2="65" stroke="#3F3D56" strokeWidth="2" />
                     <line x1="170" y1="62" x2="170" y2="4" stroke="#e6e6e6" strokeWidth="2" />
@@ -108,42 +106,42 @@ const WeatherSVG = ({ apiData, currentTime, weatherImgCode, mySunriseTime, mySun
                 <BsMoonStars className='moonStars' x="68" y="113" fill={ clearSky ? "#FBA834" : "#3f3d56" } />
                 )}
                 { showSun && (
-                <path d="M236.84252,386a12,12,0,1,1,12-12A12.01375,12.01375,0,0,1,236.84252,386Zm0-22a10,10,0,1,0,10,10A10.0113,10.0113,0,0,0,236.84252,364Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M236.84252,386a12,12,0,1,1,12-12A12.01375,12.01375,0,0,1,236.84252,386Zm0-22a10,10,0,1,0,10,10A10.0113,10.0113,0,0,0,236.84252,364Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M236.44872,359a1,1,0,0,1-1-1V346.5a1,1,0,0,1,2,0V358A1,1,0,0,1,236.44872,359Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M236.44872,359a1,1,0,0,1-1-1V346.5a1,1,0,0,1,2,0V358A1,1,0,0,1,236.44872,359Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M220.84252,374.60645h-11.5a1,1,0,0,1,0-2h11.5a1,1,0,1,1,0,2Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M220.84252,374.60645h-11.5a1,1,0,0,1,0-2h11.5a1,1,0,1,1,0,2Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M262.84252,374.60645h-11.5a1,1,0,0,1,0-2h11.5a1,1,0,0,1,0,2Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M262.84252,374.60645h-11.5a1,1,0,0,1,0-2h11.5a1,1,0,0,1,0,2Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M251.0266,363.67236a1,1,0,0,1-.69629-1.71777l4.81592-4.67236a1,1,0,0,1,1.39258,1.43554l-4.81592,4.67237A.99626.99626,0,0,1,251.0266,363.67236Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M251.0266,363.67236a1,1,0,0,1-.69629-1.71777l4.81592-4.67236a1,1,0,0,1,1.39258,1.43554l-4.81592,4.67237A.99626.99626,0,0,1,251.0266,363.67236Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 {showSun && (
-                <path d="M221.65844,363.67236a.99668.99668,0,0,1-.69629-.28222l-4.81592-4.67237a1,1,0,1,1,1.39258-1.43554l4.81592,4.67236a1,1,0,0,1-.69629,1.71777Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M221.65844,363.67236a.99668.99668,0,0,1-.69629-.28222l-4.81592-4.67237a1,1,0,1,1,1.39258-1.43554l4.81592,4.67236a1,1,0,0,1-.69629,1.71777Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M217.84252,391a1.00025,1.00025,0,0,1-.71753-1.69678l4.81592-4.95947a1.00017,1.00017,0,0,1,1.43506,1.39355l-4.81592,4.95948A.99855.99855,0,0,1,217.84252,391Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M217.84252,391a1.00025,1.00025,0,0,1-.71753-1.69678l4.81592-4.95947a1.00017,1.00017,0,0,1,1.43506,1.39355l-4.81592,4.95948A.99855.99855,0,0,1,217.84252,391Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M256.84252,392a.995.995,0,0,1-.71558-.30176l-5.81591-5.95947a.99979.99979,0,1,1,1.43115-1.39648l5.81592,5.95947A.99975.99975,0,0,1,256.84252,392Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M256.84252,392a.995.995,0,0,1-.71558-.30176l-5.81591-5.95947a.99979.99979,0,1,1,1.43115-1.39648l5.81592,5.95947A.99975.99975,0,0,1,256.84252,392Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
                 { showSun && (
-                <path d="M236.44872,402a1,1,0,0,1-1-1V389.5a1,1,0,0,1,2,0V401A1,1,0,0,1,236.44872,402Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
+                <path className={ clearSky ? 'glow_sun' : undefined } d="M236.44872,402a1,1,0,0,1-1-1V389.5a1,1,0,0,1,2,0V401A1,1,0,0,1,236.44872,402Z" transform="translate(-148.09252 -240.5)" fill={ clearSky ? "#FBA834" : "#3f3d56" }/>
                 )}
 
                 <path className={ overcastClouds ? 'glow_cloud' : undefined } d="M367.25609,393H333.87426a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Zm-33.38183-24a11.00221,11.00221,0,0,0,0,22h33.38183a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547Z" transform="translate(-148.09252 -240.5)" fill={ overcastClouds ? "#FBA834" : "#3f3d56" }/>
-                <path d="M478.76391,374.05664l-.7793-1.8418A10.002,10.002,0,1,0,464.84423,359.188l-1.84863-.7627a12.0019,12.0019,0,1,1,15.76831,15.63135Z" transform="translate(-148.09252 -240.5)" fill={ scatteredClouds ? "#FBA834" : "#3f3d56" }/>
-                <path d="M480.25609,393H446.87426a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Zm-33.38183-24a11.00221,11.00221,0,0,0,0,22h33.38183a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547Z" transform="translate(-148.09252 -240.5)" fill={ scatteredClouds ? "#FBA834" : "#3f3d56" }/>
-                <path d="M593.25609,388h-4.01391a1,1,0,0,1,0-2h4.01391a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547h-3.19726a11.00221,11.00221,0,0,0,0,22h3.1001a1,1,0,0,1,0,2h-3.1001a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
+                <path className={ scatteredClouds ? 'glow_cloud move_cloud_sun' : undefined } d="M478.76391,374.05664l-.7793-1.8418A10.002,10.002,0,1,0,464.84423,359.188l-1.84863-.7627a12.0019,12.0019,0,1,1,15.76831,15.63135Z" transform="translate(-148.09252 -240.5)" fill={ scatteredClouds ? "#FBA834" : "#3f3d56" }/>
+                <path className={ scatteredClouds ? 'glow_cloud' : undefined } d="M480.25609,393H446.87426a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Zm-33.38183-24a11.00221,11.00221,0,0,0,0,22h33.38183a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547Z" transform="translate(-148.09252 -240.5)" fill={ scatteredClouds ? "#FBA834" : "#3f3d56" }/>
+                <path d="M593.25609,388h-4.01391a1,1,0,0,1,0-2h4.01391a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547h-3.19726a11.00221,11.00221,0,0,0,0,22h3.1001a1,1,0,0,1,0,2h-3.1001a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" } className={ thunderstorm || rain ? 'glow_cloud' : undefined }/>
                 {thunderstorm && <FaBoltLightning className='fs-1 text-warning' x="408" y="130" />}
-                <path d="M576.39965,392.31689a1,1,0,0,1-1-1v-11.5a1,1,0,1,1,2,0v11.5A1.00005,1.00005,0,0,1,576.39965,392.31689Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
-                <path d="M569.39965,398.31689a1,1,0,0,1-1-1v-11.5a1,1,0,1,1,2,0v11.5A1.00005,1.00005,0,0,1,569.39965,398.31689Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
-                <path d="M583.39965,401.31689a1,1,0,0,1-1-1v-11.5a1,1,0,1,1,2,0v11.5A1.00005,1.00005,0,0,1,583.39965,401.31689Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
-                <path d="M706.25609,388h-4.01391a1,1,0,0,1,0-2h4.01391a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547h-3.19726a11.00221,11.00221,0,0,0,0,22h3.1001a1,1,0,1,1,0,2h-3.1001a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Z" transform="translate(-148.09252 -240.5)" fill={ snow ? "#FBA834" : "#3f3d56" }/><circle cx="539.75" cy="142.75" r="2.25" fill={ snow ? "#FBA834" : "#3f3d56" }/><circle cx="547.25" cy="145.75" r="2.25" fill={ snow ? "#FBA834" : "#3f3d56" }/><circle cx="534.75" cy="149.25" r="2.25" fill={ snow ? "#FBA834" : "#3f3d56" }/><circle cx="542.75" cy="154.25" r="2.25" fill={ snow ? "#FBA834" : "#3f3d56" }/>
+                <path className={ thunderstorm || rain ? 'move_rain_2' : undefined } d="M576.39965,392.31689a1,1,0,0,1-1-1v-11.5a1,1,0,1,1,2,0v11.5A1.00005,1.00005,0,0,1,576.39965,392.31689Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
+                <path className={ thunderstorm || rain ? 'move_rain_1' : undefined } d="M569.39965,398.31689a1,1,0,0,1-1-1v-11.5a1,1,0,1,1,2,0v11.5A1.00005,1.00005,0,0,1,569.39965,398.31689Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
+                <path className={ thunderstorm || rain ? 'move_rain_3' : undefined } d="M583.39965,401.31689a1,1,0,0,1-1-1v-11.5a1,1,0,1,1,2,0v11.5A1.00005,1.00005,0,0,1,583.39965,401.31689Z" transform="translate(-148.09252 -240.5)" fill={ thunderstorm || rain ?  "#FBA834" : "#3f3d56" }/>
+                <path className={ snow ? 'glow_cloud' : undefined } d="M706.25609,388h-4.01391a1,1,0,0,1,0-2h4.01391a8.00171,8.00171,0,0,0,0-16h-1.96362a1,1,0,0,1-1-1,13.88125,13.88125,0,0,0-13.72729-14,13.72466,13.72466,0,0,0-12.57471,8.39453,1.00022,1.00022,0,0,1-.91895.60547h-3.19726a11.00221,11.00221,0,0,0,0,22h3.1001a1,1,0,1,1,0,2h-3.1001a13.00186,13.00186,0,0,1,0-26h2.553a15.70676,15.70676,0,0,1,14.13794-9,15.866,15.866,0,0,1,15.697,15h.99389a10.00136,10.00136,0,0,1,0,20Z" transform="translate(-148.09252 -240.5)" fill={ snow ? "#FBA834" : "#3f3d56" }/><circle className={ snow ? 'snow_move_1' : undefined } cx="539.75" cy="142.75" r="2.25" fill={ snow ? "#0DCAF0" : "#3f3d56" }/><circle className={ snow ? 'snow_move_2' : undefined } cx="547.25" cy="145.75" r="2.25" fill={ snow ? "#0DCAF0" : "#3f3d56" }/><circle className={ snow ? 'snow_move_3' : undefined } cx="534.75" cy="149.25" r="2.25" fill={ snow ? "#0DCAF0" : "#3f3d56" }/><circle className={ snow ? 'snow_move_4' : undefined } cx="542.75" cy="154.25" r="2.25" fill={ snow ? "#0DCAF0" : "#3f3d56" }/>
                 
                 <path d="M265.09252,312h-58a8,8,0,0,1,0-16h58a8,8,0,0,1,0,16Z" transform="translate(-148.09252 -220.5)" fill={ clearSky ? "#FBA834" : "#6c63ff" }/>
                 <path d="M378.09252,312h-58a8,8,0,1,1,0-16h58a8,8,0,0,1,0,16Z" transform="translate(-148.09252 -220.5)" fill={ overcastClouds ? "#FBA834" : "#6c63ff" }/>

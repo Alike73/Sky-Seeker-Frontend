@@ -451,6 +451,51 @@ h1 {
 .glow_cloud {
   filter: var(--img-shadow-6);
 }
+.glow_sun {
+  filter: var(--img-shadow-5);
+}
+.snow_move_1 {
+  animation: upAndDown 350ms infinite alternate;
+}
+.snow_move_2 {
+  animation: upAndDown 400ms infinite alternate;
+}
+.snow_move_3 {
+  animation: upAndDown 450ms infinite alternate;
+}
+.snow_move_4 {
+  animation: upAndDown 500ms infinite alternate;
+}
+
+.move_rain_1 {
+  animation: rain 350ms infinite alternate;
+}
+.move_rain_2 {
+  animation: rain 400ms infinite alternate;
+}
+.move_rain_3 {
+  animation: rain 450ms infinite alternate;
+}
+
+@keyframes rain {
+  0% {
+      transform: translateY(-240.5px) translateX(-148.09252px);
+  }
+  100% {
+      transform: translateY(-235.5px) translateX(-148.09252px);
+  }
+}
+.move_cloud_sun {
+  animation: move_cloud_sun 550ms infinite alternate;
+}
+@keyframes move_cloud_sun {
+  0% {
+      transform: translateY(-240.5px) translateX(-148.09252px);
+  }
+  100% {
+      transform: translateY(-239.5px) translateX(-148.09252px);
+  }
+}
 
 /* ===Footer-Clouds=== */
 .clouds {

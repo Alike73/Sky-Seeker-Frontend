@@ -5,6 +5,10 @@ export const sidebarSlice = createSlice({
 
     initialState: {
         isOpen: false,
+
+        showBtnGroup: false,
+
+
         isActiveIco: false,
         isActiveSidebar: false,
         selectedImageCategory: 'home',
@@ -12,6 +16,9 @@ export const sidebarSlice = createSlice({
     reducers: {
         setIsOpen: (state, action) => {
             state.isOpen = action.payload;
+        },
+        setShowBtnGroup: (state, action) => {
+            state.showBtnGroup = action.payload;
         },
         setActiveIco: (state, action) => {
             state.isActiveIco = action.payload;
@@ -27,9 +34,10 @@ export const sidebarSlice = createSlice({
 });
 
 export const getIsOpen = state => state.sidebarItems.isOpen;
+export const getShowBtnGroup = state => state.sidebarItems.showBtnGroup;
 export const getActiveIcon = state => state.sidebarItems.isActiveIco;
 export const getActiveSidebar = state => state.sidebarItems.isActiveSidebar;
 export const getSelectedImageCategory = state => state.sidebarItems.selectedImageCategory;
 
-export const { setActiveIco, setIsActiveSidebar, setIsOpen, filterImageCategory } = sidebarSlice.actions;
+export const { setActiveIco, setIsActiveSidebar, setIsOpen, setShowBtnGroup, filterImageCategory } = sidebarSlice.actions;
 export default sidebarSlice.reducer;
