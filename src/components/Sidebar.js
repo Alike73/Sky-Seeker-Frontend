@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getIsOpen, getShowBtnGroup, setShowBtnGroup } from '../redux/SidebarSlice';
 import UnitsToggler from './UnitsToggler';
@@ -6,17 +6,22 @@ import { getUnits } from '../redux/WeatherSlice';
 import CityManagerForm from './CityManagerForm';
 import SidebarCityItem from './SidebarCityItem';
 import SidebarFooter from './SidebarFooter';
+import { getAllCities } from '../api/FetchSavedCities';
 
 const Sidebar = () => {
 
+    const [myCities, setMyCities] = useState([]);
     const isOpen = useSelector(getIsOpen);
     const units = useSelector(getUnits);
     const showBtnGroup = useSelector(getShowBtnGroup);
     const dispatch = useDispatch();
-
     const handleShowBtnGroup = () => {
         dispatch(setShowBtnGroup(!showBtnGroup))
     };
+
+    useEffect(() => {
+        getAllCities(setMyCities)
+    }, [])
 
     const unitsSystem = units ? "metric" : "imperial";
 
@@ -29,7 +34,10 @@ const Sidebar = () => {
             <hr />
             <CityManagerForm />
             <ul className="nav nav-pills flex-column mb-5">
-                <SidebarCityItem />
+                { myCities.map((item) => <SidebarCityItem 
+                    key = { item._id } 
+                    city = { item.city } 
+                />)}
             </ul>
             <button 
                 type="button" 

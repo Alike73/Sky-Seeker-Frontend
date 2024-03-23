@@ -27,13 +27,13 @@ h1 {
 
 /* ===Sidebar=== */
 .sidebar {
-  width: 280px;
+  width: 320px;
   height: 100%;
   min-height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
-  translate: 280px 0;
+  translate: 320px 0;
   background-image: var(--app-bg);
   /* background: var(--bg-sidebar);
   background-position: center center;
