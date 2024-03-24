@@ -52,6 +52,17 @@ h1 {
   translate: 0;
 }
 
+.map_pin_wrapper {
+  position: relative;
+}
+.map_marker {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  filter: var(--img-shadow-3);
+}
+
 .manage_location_btn {
   color: var(--c-light-md);
   background: var(--c-light-transparent-sm);
@@ -59,12 +70,47 @@ h1 {
   transition: var(--transition-1);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.manage_location_btn:hover {
+.manage_location_btn:hover,
+.btn_group .manage_location_btn:hover  {
   transform: translateY(-2px);
   color: var(--c-light);
   background: var(--c-light-transparent-md);
   text-shadow: var(--text-shadow);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.sidebar_city_name {
+  color: var(--c-label-lg);
+  transition: var(--transition-1);
+}
+.sidebar_city_name.active {
+  color: var(--c-light);
+}
+.sidebar_city_temp {
+  color: var(--c-label-lg);
+  transition: var(--transition-1);
+}
+.sidebar_city_temp.active {
+  color: var(--c-light);
+  font-weight: bold;
+}
+
+@keyframes glow-btn {
+  0% {
+  border-color: #393;
+  box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+  }	
+  100% {
+  border-color: #6f6;
+  box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
+  }
+}
+
+.manage_location_btn.active {
+  color: var(--c-yellow);
+  border: 1px solid #393;
+  box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+  animation: glow-btn 800ms ease-out infinite alternate;
 }
 
 .manage_location_input {
@@ -451,6 +497,19 @@ h1 {
 .glow_cloud {
   filter: var(--img-shadow-6);
 }
+.overcastCloudsUpAndDown {
+  animation: upAndDownCloud 800ms infinite alternate;
+}
+
+@keyframes upAndDownCloud {
+  0% {
+    transform: translateY(-240.5px) translateX(-148.09252px);
+  }
+  100% {
+    transform: translateY(-236.5px) translateX(-148.09252px);
+  }
+}
+
 .glow_sun {
   filter: var(--img-shadow-5);
 }

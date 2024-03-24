@@ -1,9 +1,12 @@
 import React from 'react'
 
-const CityManagerForm = () => {
+const CityManagerForm = ({ handleSubmit, city, setCity, editingCity }) => {
+
+
+    const btnText = editingCity ? "Save changes" : "Add new location";
 
     return (
-        <form id='cityManagerForm' className="col-12 col-lg-auto mb-5" role="search">
+        <form id='cityManagerForm' className="col-12 col-lg-auto mb-5" role="search" onSubmit = { handleSubmit }>
             <small className='text-warning'>
                 Add frequently used locations
             </small>
@@ -16,14 +19,16 @@ const CityManagerForm = () => {
                     className="form-control manage_location_input" 
                     id="recipient-name" 
                     autoComplete='off' 
-                    required 
+                    required={ true }
+                    value={ city }
+                    onChange={(e) => setCity(e.target.value)} 
                 />
             </div>
             <button 
-                type="button" 
+                type="submit" 
                 className="btn rounded-pill px-3 manage_location_btn"
             >
-                Add
+                { btnText }
             </button>
         </form>
     )
