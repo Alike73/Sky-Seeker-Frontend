@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { getShowBtnGroup } from '../redux/SidebarSlice';
+import { getIsOpen, getShowBtnGroup, setIsOpen } from '../redux/SidebarSlice';
 import Swal from 'sweetalert2';
 import { BsTrash3 } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
@@ -12,6 +12,7 @@ import moonIco from '../assets/images/Moon.svg';
 const SidebarCityItem = ({ myCity, updatingInInput, deleteCity }) => {
 
     const [apiData, setApiData] = useState([]);
+    const isOpen = useSelector(getIsOpen);
     const dispatch = useDispatch();
     const units = useSelector(getUnits);
     const selectedCity = useSelector(getCity);
@@ -55,7 +56,7 @@ const SidebarCityItem = ({ myCity, updatingInInput, deleteCity }) => {
             text: "Your city has been deleted.",
             icon: "success",
             showConfirmButton: false,
-            timer: 1700
+            timer: 1500
             });
         }
         });
@@ -63,6 +64,7 @@ const SidebarCityItem = ({ myCity, updatingInInput, deleteCity }) => {
 
     const handleShowFullForecast = () => {
         dispatch(setCity(cityName))
+        dispatch(setIsOpen(!isOpen));
     };
 
     const unitTemp = units ? 'C' : 'F';

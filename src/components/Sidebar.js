@@ -8,6 +8,7 @@ import UnitsToggler from './UnitsToggler';
 import CityManagerForm from './CityManagerForm';
 import SidebarCityItem from './SidebarCityItem';
 import SidebarFooter from './SidebarFooter';
+import SidebarWarningText from './SidebarWarningText';
 
 const Sidebar = () => {
 
@@ -78,20 +79,26 @@ const Sidebar = () => {
                 editingCity = { editingCity } 
             />
             <ul className="nav nav-pills flex-column mb-5">
-                { myCities.map((item) => <SidebarCityItem 
-                    key = { item._id } 
-                    myCity = { item.city }
-                    updatingInInput = {() => updatingInInput(item._id, item.city)}
-                    deleteCity={() => deleteCity(item._id, setMyCities)}  
-                />)}
+                { myCities.length === 0 ? (
+                    <SidebarWarningText />
+                ) : (
+                    myCities.map((item) => <SidebarCityItem 
+                        key = { item._id } 
+                        myCity = { item.city }
+                        updatingInInput = {() => updatingInInput(item._id, item.city)}
+                        deleteCity={() => deleteCity(item._id, setMyCities)}  
+                    />)
+                )}
             </ul>
-            <button 
-                type="button" 
-                className="btn rounded-pill px-3 mb-auto manage_location_btn"
-                onClick = { handleShowBtnGroup }
-            >
-                Manage location
-            </button>
+            { myCities.length !== 0 && (
+                <button 
+                    type="button" 
+                    className="btn rounded-pill px-3 mb-auto manage_location_btn"
+                    onClick = { handleShowBtnGroup }
+                >
+                    Manage location
+                </button>
+            )}
             <hr />
             <SidebarFooter />
         </div>
