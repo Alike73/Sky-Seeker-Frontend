@@ -10,7 +10,7 @@ const myURL = 'http://localhost:7000';
 // GET:
 const getAllCities = (setMyCities) => {
     axios.get(`${myURL}`)
-    .then(({data}) => {console.log(data)
+    .then(({data}) => {// console.log(data)
         setMyCities(data)
     })
 }

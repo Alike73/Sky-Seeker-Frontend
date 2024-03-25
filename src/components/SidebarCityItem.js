@@ -28,7 +28,7 @@ const SidebarCityItem = ({ myCity, updatingInInput, deleteCity }) => {
     }, [apiUrl]);
 
     const cityName = apiData.name;
-    // const country = apiData.sys?.country;
+    const country = apiData.sys?.country;
     const temperature = Math.round(apiData?.main?.temp);
     const showBtnGroup = useSelector(getShowBtnGroup);
     const weatherImgCode = apiData.weather?.[0]?.icon;
@@ -68,15 +68,12 @@ const SidebarCityItem = ({ myCity, updatingInInput, deleteCity }) => {
     };
 
     const unitTemp = units ? 'C' : 'F';
-
     const fullForecastBtnText = selectedCity === cityName ? 'Showing now' : 'Full forecast'
-
-
 
     return (
         <li className="nav-item pb-2 my-3 d-flex flex-column border-bottom">
             <div className="ps-0 pe-2 pb-2 d-flex justify-content-between align-items-center" aria-current="page">
-                <span className={ `sidebar_city_name ps-2 ${selectedCity === cityName ? 'active' : ''}`}>{ cityName }</span>
+                <span className={ `sidebar_city_name ps-2 ${selectedCity === cityName ? 'active' : ''}`}>{ cityName }, {country}</span>
                 <div>
                     <img 
                         className="me-2 weather_icon" 

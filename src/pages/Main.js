@@ -35,7 +35,7 @@ const Main = () => {
             .catch((error) => console.error(error));
     }, [apiUrl]);
 
-    console.log(apiData);
+    // console.log(apiData);
 
     const cityName = apiData.name;
     const country = apiData.sys?.country;
