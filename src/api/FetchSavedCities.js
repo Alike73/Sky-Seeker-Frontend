@@ -2,10 +2,10 @@
 
 import axios from 'axios';
 
-const myURL = 'http://localhost:7000';
+const myURL = 'https://sky-seeker-backend.onrender.com';
 
 // http://localhost:7000
-// 
+// https://sky-seeker-backend.onrender.com
 
 // GET:
 const getAllCities = (setMyCities) => {
