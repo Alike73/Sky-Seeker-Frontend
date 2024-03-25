@@ -69,7 +69,7 @@ const SidebarCityItem = ({ myCity, updatingInInput, deleteCity }) => {
 
     const unitTemp = units ? 'C' : 'F';
 
-    const fullForecastBtnText = selectedCity === cityName ? 'Forecast now' : 'Full forecast'
+    const fullForecastBtnText = selectedCity === cityName ? 'Showing now' : 'Full forecast'
 
 
 

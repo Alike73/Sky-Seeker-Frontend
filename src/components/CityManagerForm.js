@@ -7,11 +7,11 @@ const CityManagerForm = ({ handleSubmit, city, setCity, editingCity }) => {
 
     return (
         <form id='cityManagerForm' className="col-12 col-lg-auto mb-5" role="search" onSubmit = { handleSubmit }>
-            <small className='text-warning'>
+            <small className='text-warning small_text'>
                 Add frequently used locations
             </small>
             <div className="mb-3">
-                <label htmlFor="recipient-name" className="col-form-label text-warning">
+                <label htmlFor="recipient-name" className="col-form-label text-warning small_text">
                     City, Country (ex. New York, US)
                 </label>
                 <input 

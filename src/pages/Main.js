@@ -43,35 +43,31 @@ const Main = () => {
     const currentPressure = apiData?.main?.pressure;
 
     // Convert the offset to milliseconds
-const timezoneOffsetMilliseconds = apiData.timezone * 60 * 1000;
+    const timezoneOffsetMilliseconds = apiData.timezone * 60 * 1000;
 
-// Convert sunrise and sunset timestamps to local time
-const mySunriseTimestamp = (apiData.sys?.sunrise * 1000) + timezoneOffsetMilliseconds;
-const mySunsetTimestamp = (apiData.sys?.sunset * 1000) + timezoneOffsetMilliseconds;
+    // Convert sunrise and sunset timestamps to local time
+    const mySunriseTimestamp = (apiData.sys?.sunrise * 1000) + timezoneOffsetMilliseconds;
+    const mySunsetTimestamp = (apiData.sys?.sunset * 1000) + timezoneOffsetMilliseconds;
 
-// Create Date objects for local sunrise and sunset times
-const mySunriseDate = new Date(mySunriseTimestamp);
-const mySunsetDate = new Date(mySunsetTimestamp);
+    // Create Date objects for local sunrise and sunset times
+    const mySunriseDate = new Date(mySunriseTimestamp);
+    const mySunsetDate = new Date(mySunsetTimestamp);
 
-// Format the local sunrise and sunset times
-const mySunriseTime = mySunriseDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-const mySunsetTime = mySunsetDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    // Format the local sunrise and sunset times
+    const mySunriseTime = mySunriseDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    const mySunsetTime = mySunsetDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
-// Output the results
-console.log("Local Sunrise Time:", mySunriseTime);
-console.log("Local Sunset Time:", mySunsetTime);
-    
+    const timezoneOffsetSeconds = apiData.timezone;
 
-    const currentDate = new Date();
+    // Adjust the date calculation based on timezone offset
+    const currentDate = new Date(new Date().getTime() + timezoneOffsetSeconds * 1000);
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    const day = days[currentDate.getDay()];
-    const todayDate = currentDate.getDate();
-    const month = months[currentDate.getMonth()];
-    const year = currentDate.getFullYear();
-
-    const currentTime = currentDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    const day = days[currentDate.getUTCDay()]; // Use getUTCDay to avoid local time issues
+    const todayDate = currentDate.getUTCDate(); // Use getUTCDate to avoid local time issues
+    const month = months[currentDate.getUTCMonth()]; // Use getUTCMonth to avoid local time issues
+    const year = currentDate.getUTCFullYear(); // Use getUTCFullYear to avoid local time issues
 
     const finalDate = day + ' ' + todayDate + ' ' + month + ' ' + year;
 
@@ -89,30 +85,29 @@ console.log("Local Sunset Time:", mySunsetTime);
             <Sidebar />
             <div className="container col-xl-10 col-xxl-8 px-2 py-5">
                 <div className="col mb-3">
-                    <h1 className="display-1 fw-bold lh-1 text-center text-body-emphasis mb-5">
+                    <h1 className="display-1 fw-bold lh-1 text-center mb-5">
                         Sky Seeker
                     </h1>
                     
                     <SearchWeatherInput />
-                    <h2 className="display-5 fw-bold lh-1 text-center text-body-emphasis mb-3">
+                    <h2 className="display-5 lh-1 text-center mb-3 city_country_title">
                     { cityName }, { country }
                     </h2>
-                    <p className="fs-4 fw-normal lh-1 text-body-emphasis text-center mb-3">
+                    <p className="fs-4 fw-normal lh-1 date_text text-center mb-3">
                         { finalDate }
                     </p>
                     <div className="d-flex justify-content-center align-items-center">
-                        <p className="fs-6 fw-bold lh-1 text-body-emphasis text-center px-2">
+                        <p className="fs-6 fw-bold lh-1 conditions_text text-center px-2">
                             { conditions }
                             <img className="ms-2 weather_icon" src={ imgURL } alt="sun" width={weatherImgCode === '01d' || weatherImgCode === '01n' ? '40px' : '72px' } />
                         </p>
-                        <p className="d-flex align-items-center fs-6 fw-bold lh-1 text-body-emphasis text-center px-2">
+                        <p className="d-flex align-items-center fs-6 fw-bold lh-1 pressure_text text-center px-2">
                             pressure
                             <PressureSVG currentPressure = { currentPressure } />
                         </p>
                     </div>
                     <WeatherSVG 
                         apiData = { apiData }  
-                        currentTime = { currentTime } 
                         weatherImgCode = { weatherImgCode }
                         mySunriseTime = { mySunriseTime }
                         mySunsetTime = { mySunsetTime } 

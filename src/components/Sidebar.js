@@ -66,19 +66,19 @@ const Sidebar = () => {
     const unitsSystem = units ? "metric" : "imperial";
 
     return (
-        <div className={ `d-flex flex-column flex-shrink-0 p-3 sidebar ${ isOpen ? "open" : "" }` }>
-        <div className="units_toggler_wrapper mb-3">
-            <small>Units: ( <span className={ `${units ? "text-info" : "text-warning" }`}>{unitsSystem}</span> )</small>
-            <UnitsToggler />
-        </div>
-            <hr />
+        <div className={ `d-flex flex-column flex-shrink-0 p-3 pb-0 sidebar ${ isOpen ? "open" : "" }` }>
+            <div className="units_toggler_wrapper mb-3">
+                <small>Units: ( <span className={ `${units ? "text-info" : "text-warning" }`}>{unitsSystem}</span> )</small>
+                <UnitsToggler />
+            </div>
+            <hr className='text-light' />
             <CityManagerForm 
                 handleSubmit = { handleSubmit } 
                 city = { city } 
                 setCity = { setCity } 
                 editingCity = { editingCity } 
             />
-            <ul className="nav nav-pills flex-column mb-5">
+            <ul className={ `nav nav-pills flex-column mb-5 ${ myCities.length === 0 ? "mb-auto" : "" }` }>
                 { myCities.length === 0 ? (
                     <SidebarWarningText />
                 ) : (

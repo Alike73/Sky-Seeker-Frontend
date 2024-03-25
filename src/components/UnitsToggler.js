@@ -8,8 +8,7 @@ const UnitsToggler = () => {
     const dispatch = useDispatch();
 
     const toggleUnits = () => {
-        dispatch(setUnits(!units))
-        ; // Toggle between metric and imperial
+        dispatch(setUnits(!units)); // Toggle between metric and imperial
     };
 
     return (

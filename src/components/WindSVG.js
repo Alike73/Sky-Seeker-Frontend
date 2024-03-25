@@ -4,14 +4,14 @@ const WindSVG = () => {
 
     return (
         <svg 
-        stroke="currentColor" 
+        stroke="hsl(0, 0%, 90%)" 
         fill="none" 
         strokeWidth="2" 
         viewBox="0 0 24 24" 
         strokeLinecap="round" 
         strokeLinejoin="round" 
-        className="fs-2" 
-        x="484" 
+        className="fs-2  svg_wind" 
+        x="482" 
         y="19" 
         height="1em" 
         width="1em" 

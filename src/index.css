@@ -1,9 +1,7 @@
 @import "~normalize.css/normalize.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
-/* font-family: 'Manrope', sans-serif;
-font-family: 'Space Grotesk', sans-serif;
-font-family: 'Tilt Neon', sans-serif; */
+/* font-family: "M PLUS 1p", sans-serif; */
 
 html {
   box-sizing: border-box;
@@ -24,7 +22,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: "M PLUS 1p", sans-serif;
 }
 
 :root {
@@ -32,6 +30,7 @@ body {
 
   --c-navy: hsl(211deg 80.66% 26.14%);
   --c-navy-md: hsl(217, 80%, 42%);
+  --c-turquoise: hsl(180, 100%, 50%);
   --c-blue: hsl(243, 100%, 69%);
   --c-lilac: hsl(260, 95%, 58%);
   --c-coral: hsl(2, 100%, 66%);
@@ -39,6 +38,8 @@ body {
   --c-dark: hsl(60, 1%, 19%);
   --c-blue-md: hsl(248, 45%, 54%);
   --c-blue-sm: hsl(242, 51%, 70%);
+  --c-label: hsl(0, 0%, 73%);
+  --c-label-md: hsl(0, 0%, 51%);
   --c-label-lg: hsl(210, 11%, 71%);
   --c-grey: hsl(233, 23%, 34%);
   --c-yellow: hsl(43, 100%, 50%);
@@ -89,13 +90,16 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   background: #2B4865;
 }
 ::-webkit-scrollbar-thumb {
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-  /* border-radius: 10px; */
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {

@@ -15,7 +15,7 @@ const SidebarToggler = () => {
 
     return (
         <div 
-            className="sidebar_toggler_wrapper" 
+            className={ `sidebar_toggler_wrapper ${ isOpen ? "active" : "" }`}  
             onClick={ handleToggleSidebar }
         >
             <p className="mb-0 fw-bold">{ menuText }</p>
@@ -23,11 +23,6 @@ const SidebarToggler = () => {
                 className={ ` ham hamRotate ham1 sidebar_toggler ${ isOpen ? "active" : "" } ` } 
                 viewBox="0 0 100 100" 
                 width={55} 
-                // data-bs-toggle="collapse" 
-                // data-bs-target="#myNavItems" 
-                // aria-controls="myNavItems" 
-                // aria-expanded="false" 
-                // aria-label="Toggle navigation"
             >
                 <path
                     className="line top"
