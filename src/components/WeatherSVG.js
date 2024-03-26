@@ -73,8 +73,8 @@ const WeatherSVG = ({ apiData, weatherImgCode, mySunriseTime, mySunsetTime }) =>
                     <line x1="478" y1="62" x2="478" y2="4" stroke="#e6e6e6" strokeWidth="2" />
                 </g>
                 <g>
-                <text className='fs-1 fw-bold' x="128" y="268" fill="hsl(210, 11%, 71%)">Current</text>
-                <text className='fs-1 fw-bold' x="406" y="268" fill="hsl(210, 11%, 71%)">Feels like</text>
+                <text className='fs-1 fw-bold temperature' x="128" y="268" fill="hsl(180, 100%, 50%)">Current</text>
+                <text className='fs-1 fw-bold feelsLike' x="406" y="268" fill="hsl(180, 100%, 50%)">Feels like</text>
                     <text className='display-1 fw-bold temperature' x="120" y="350" fill="hsl(43, 100%, 50%)">{ temperature }&#176;{ unitTemp }</text>
                     <text className='display-1 fw-bold feelsLike' x="406" y="350" fill="hsl(0, 0%, 90%)">{ feelsLike }&#176;{ unitTemp }</text>
                     <WeatherSVGCurrentTime apiData = { apiData } />
