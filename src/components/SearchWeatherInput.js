@@ -52,7 +52,7 @@ const SearchWeatherInput = () => {
                     </svg>
                 </button>
                 <input 
-                type="search" 
+                type="text" 
                 name="text" 
                 className="input" 
                 placeholder="type your city name.."
